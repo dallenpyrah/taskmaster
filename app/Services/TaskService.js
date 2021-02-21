@@ -23,19 +23,19 @@ class TaskService{
         ProxyState.tasks = temp
     }
 
-    deleteTask(id){
+    deleteTask(newId){
         let temp = ProxyState.tasks
-        let taskIndex = temp.findIndex(task => task.id === id)
-        temp.splice(taskIndex, 0)
+        let taskIndex = temp.findIndex(task => task.newId === newId)
+        temp.splice(taskIndex, 1)
         ProxyState.tasks = temp
     }
 
 
-    confirmDelete(id){
+    confirmDelete(newId){
         let answer = confirm("Are you sure you want to delete that?")
         if(answer == true){
             let temp = ProxyState.tasks
-            let taskIndex = temp.findIndex(task => task.id === id)
+            let taskIndex = temp.findIndex(task => task.newId === newId)
             temp.splice(taskIndex, 1)
             ProxyState.tasks = temp
         }else{
