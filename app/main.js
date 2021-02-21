@@ -9,6 +9,8 @@ class App {
     createListController = new CreateListController();
 
     taskController = new TaskController();
+
+   
 }
 
 window["app"] = new App();

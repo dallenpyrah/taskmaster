@@ -11,11 +11,6 @@ class CreateListService{
     }
 
     createList(rawList){
-        let validate = document.forms['myForm']['listTitle'].value;
-        if(validate == ''){
-            alert("List must have a name!");
-            return false
-        }
         let temp = ProxyState.createLists
         let newList = new CreateList(rawList)
         temp.push(newList)

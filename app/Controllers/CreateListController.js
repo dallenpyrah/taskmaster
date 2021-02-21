@@ -1,5 +1,6 @@
 import { ProxyState } from "../AppState.js"
 import { createListService } from "../Services/CreateListService.js"
+import { taskService } from "../Services/TaskService.js"
 
 function _drawList(){
     let createElem = document.getElementById('list-temp')
@@ -14,13 +15,15 @@ export default class CreateListController{
         console.log("Hello from the create list controller.")
         ProxyState.on("createLists",_drawList)
         ProxyState.on('tasks',_drawList)
+        ProxyState.on('completedTasks',_drawList)
     }
 
     createList(event){
         event.preventDefault()
         let form = event.target
         let rawList = {
-            listTitle: form.listTitle.value
+            listTitle: form.listTitle.value,
+            color: form.color.value
         }
         createListService.createList(rawList)
         console.log(ProxyState.createLists)
@@ -28,6 +31,7 @@ export default class CreateListController{
 
     deleteList(id){
         createListService.deleteList(id)
+        taskService.confirmDelete(id)
         console.log(ProxyState.createLists)
     }
 }

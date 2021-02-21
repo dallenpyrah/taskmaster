@@ -4,6 +4,7 @@ import { isValidProp } from "./Utils/isValidProp.js"
 import CreateList from "./Models/CreateList.js"
 import Task from "./Models/Task.js"
 
+
 class AppState extends EventEmitter {
   /** @type {Value[]} */
   values = []
@@ -12,6 +13,8 @@ class AppState extends EventEmitter {
   createLists = []
   /** @type {Task[]} */
   tasks = []
+
+
 }
 
 export const ProxyState = new Proxy(new AppState(), {

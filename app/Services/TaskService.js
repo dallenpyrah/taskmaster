@@ -16,12 +16,20 @@ class TaskService{
         ProxyState.tasks = temp
     }
 
+    addTask(newId){
+        let temp = ProxyState.tasks
+        let task = temp.find(task=> task.newId === newId)
+        task.quantity = "Complete!"
+        ProxyState.tasks = temp
+    }
+
     deleteTask(id){
         let temp = ProxyState.tasks
         let taskIndex = temp.findIndex(task => task.id === id)
-        temp.splice(taskIndex, 1)
+        temp.splice(taskIndex, 0)
         ProxyState.tasks = temp
     }
+
 
     confirmDelete(id){
         let answer = confirm("Are you sure you want to delete that?")
@@ -34,6 +42,9 @@ class TaskService{
             "Canceled"
         }
     }
+
+    confirmComplete
+
 }
 
 export const taskService = new TaskService();

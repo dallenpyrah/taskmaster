@@ -18,6 +18,9 @@ export default class TaskController{
         console.log(ProxyState.tasks)
     }
 
+    addTask(newId){
+        taskService.addTask(newId)
+    }
     confirmDelete(id){
         taskService.confirmDelete(id)
     }
