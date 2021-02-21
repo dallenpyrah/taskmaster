@@ -13,7 +13,7 @@ export default class Task{
     get Template(){
         return /*html*/ `
        <div class="col-6 justify-content-around">
-        <h6 class="mt-2"><i class="fa fa-circle-o mr-2" aria-hidden="true"></i>${this.task} </h6>
+        <h6 class="mt-2"><i class="fa fa-circle-o mr-2" aria-hidden="true"></i>${this.task}</h6>
             </div>
             <div class="col-3"> <h6 class="text-success mt-2">${this.quantity}</h6></div>
             <div class="col-3">
