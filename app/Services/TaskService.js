@@ -32,7 +32,7 @@ class TaskService{
 
 
     confirmDelete(newId){
-        let answer = confirm("Are you sure you want to delete that?")
+        let answer = confirm("Are you sure you want to delete that task?")
         if(answer == true){
             let temp = ProxyState.tasks
             let taskIndex = temp.findIndex(task => task.newId ===  newId)
