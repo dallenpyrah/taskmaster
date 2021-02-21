@@ -20,6 +20,7 @@ class TaskService{
         let temp = ProxyState.tasks
         let task = temp.find(task=> task.newId === newId)
         task.quantity = "Complete!"
+        task.completedTasks += 1
         ProxyState.tasks = temp
     }
 
@@ -42,8 +43,6 @@ class TaskService{
             "Canceled"
         }
     }
-
-    confirmComplete
 
 }
 

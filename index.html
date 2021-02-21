@@ -18,19 +18,16 @@
     <header>
         <nav class="navbar navbar-dark navbar-expand bg-primary text-light">
             <a class="navbar-brand" href="#">
-                <span class="ml-2">Task Master</span>
+                <i class="fa fa-list" aria-hidden="true"></i>
+                <span class="ml-2 mr-1">Task Master</span>
             </a>
-            <div class="row">
-                <form name="myForm" class="form-inline" onsubmit="app.createListController.createList(event)">
+                <form name="myForm" class="form-inline" onsubmit="app.createListController.createList(event, '${this.id}')">
                     <div class="form-group">
                         <input type="text" name="listTitle" id="listTitle" class="form-control ml-2" minLength="3" maxLength="15" placeholder="Name your list" aria-describedby="helpId" required>
-                        <label class="ml-2 mr-2 mt-2" for="color"><h5>Color</h5></label>
-                        <input class="ml-1 mr-2 mt-1"  type="color" id="color" name="color" value="#000000">
+                        <input class="rounded ml-2"  type="color" id="color" name="color" value="#000000">
                         <button class="btn btn-light ml-2 text-primary" type="submit">Create List</button> 
                     </div>
                 </form>
-                
-            </div>
         </nav>
     </header>
     <main>

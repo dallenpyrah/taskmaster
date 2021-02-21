@@ -1,13 +1,16 @@
 import { generateId } from "../Utils/GenerateId.js";
+import { ProxyState } from "../AppState.js"
 
 
 export default class Task{
-    constructor({listTitle = "nothing" , id, task, quantity = ""}){
+    constructor({listTitle = "nothing" , id, task, quantity = "", allTasks = 1, completedTasks}){
         this.listTitle = listTitle,
         this.id = id,
         this.newId = generateId()
         this.task = task,
-        this.quantity = quantity
+        this.quantity = quantity,
+        this.allTasks = allTasks,
+        this.completedTasks = completedTasks
     }
 
     get Template(){
@@ -25,4 +28,15 @@ export default class Task{
        `
     }
 
+    get AllTasks(){
+        return /*html*/ `
+            ${this.allTasks}
+        `
+    }
+
+    get CompletedTasks(){
+        return /*html*/ `
+            ${this.completedTasks}
+        `
+    }
 }
