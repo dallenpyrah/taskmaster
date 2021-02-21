@@ -20,7 +20,6 @@ class TaskService{
         let temp = ProxyState.tasks
         let task = temp.find(task=> task.newId === newId)
         task.quantity = "Complete!"
-        task.completedTasks += 1
         ProxyState.tasks = temp
     }
 
@@ -36,7 +35,7 @@ class TaskService{
         let answer = confirm("Are you sure you want to delete that?")
         if(answer == true){
             let temp = ProxyState.tasks
-            let taskIndex = temp.findIndex(task => task.newId === newId)
+            let taskIndex = temp.findIndex(task => task.newId ===  newId)
             temp.splice(taskIndex, 1)
             ProxyState.tasks = temp
         }else{

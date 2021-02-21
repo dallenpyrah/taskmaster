@@ -18,10 +18,15 @@ class CreateListService{
     }
 
     deleteList(id){
+        let answer = confirm("Are you sure you want to delete that?")
+        if(answer == true){
         let temp = ProxyState.createLists
         let listIndex = temp.findIndex(list => list.id === id)
         temp.splice(listIndex, 1)
-        ProxyState.createLists = temp
+        ProxyState.createLists = temp}
+        else{
+            "Canceled"
+        }
     }
 }
 
