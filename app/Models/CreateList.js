@@ -39,7 +39,7 @@ export default class CreateList{
     }
 
     get AllTasks(){
-        let template = 1
+        let template = 0
         let tasks = ProxyState.tasks.filter(t => t.id === this.id)
         tasks.forEach(t => template += 1)
         return template
