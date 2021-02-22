@@ -20,16 +20,22 @@ class TaskService{
     addTask(newId){
         let temp = ProxyState.tasks
         let task = temp.find(task=> task.newId === newId)
-        task.quantity = "Complete!"
-        task.allTasks -= 1
+      
+        if(task.allTasks >= 0){
+            task.allTasks -= 1
+            task.quantity = "Complete!"}
+            else{
+                task.allTasks = 0
+                task.quantity = ""
+            }
         
         ProxyState.tasks = temp
     }
 
 
-    deleteTask(newId){
+    deleteTask(id){
         let temp = ProxyState.tasks
-        let taskIndex = temp.findIndex(task => task.newId === newId)
+        let taskIndex = temp.findIndex(task => task.id === id)
         temp.splice(taskIndex, 1)
         ProxyState.tasks = temp
     }

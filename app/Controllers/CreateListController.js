@@ -31,7 +31,7 @@ export default class CreateListController{
 
     deleteList(id){
         createListService.deleteList(id)
-        taskService.confirmDelete(id)
+        taskService.deleteTask(id)
         console.log(ProxyState.createLists)
     }
 }

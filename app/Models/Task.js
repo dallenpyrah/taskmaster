@@ -3,14 +3,15 @@ import { ProxyState } from "../AppState.js"
 
 
 export default class Task{
-    constructor({listTitle = "nothing" , id = generateId(), newId = generateId(), task, quantity = "", allTasks = 0, uncompletedTasks = 0}){
+    constructor({listTitle = "nothing" , id = generateId(), newId = generateId(), task, quantity = "", allTasks = 0, uncompletedTasks = 0, completedTask = true || false}){
         this.listTitle = listTitle,
         this.id = id,
         this.newId = newId
         this.task = task,
         this.quantity = quantity,
         this.allTasks = allTasks,
-        this.uncompletedTasks = uncompletedTasks
+        this.uncompletedTasks = uncompletedTasks,
+        this.completedTask = completedTask
     }
 
     get Template(){
@@ -21,7 +22,7 @@ export default class Task{
             <div class="col-3"> <h6 class="text-success mt-2">${this.quantity}</h6></div>
             <div class="col-3">
             <p class="form-check form-check-inline">
-            <input class="form-check-input ml-2 mt-2 text-success" onclick="app.taskController.addTask('${this.newId}')" type="checkbox" name="checkbox" id="myCheck" value="myChecked">
+            <input class="form-check-input ml-2 mt-2 text-success" ${this.completedTask} ? 'checked' || '' onclick="app.taskController.addTask('${this.newId}')" type="checkbox" name="checkbox" id="myCheck" value="myChecked">
             <i class="fa fa-trash text-danger mt-2 ml-1 mr-3 clickable" onclick="app.taskController.confirmDelete('${this.newId}')" aria-hidden="true"></i>
              </p>
             </div>
