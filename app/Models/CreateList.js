@@ -3,7 +3,7 @@ import { generateId } from "../Utils/GenerateId.js"
 
 
 export default class CreateList{
-    constructor({listTitle, id = generateId(), taskId = generateId(), task, color, taskQuantity = 0, uncompletedTasks = 0}){
+    constructor({listTitle, id = generateId(), taskId = generateId(), task, color, taskQuantity = 0, uncompletedTasks = 3}){
         this.listTitle = listTitle
         this.id = id
         this.task = task
@@ -46,9 +46,9 @@ export default class CreateList{
     }
 
     get CompletedTasks(){
-        let template = 0
+        let template = this.AllTasks
         let tasks = ProxyState.tasks.filter(t => t.id === this.id)
-        tasks.forEach(t => template += 1)
+        tasks.forEach(t => template += t.allTasks)
         return template
     }
 

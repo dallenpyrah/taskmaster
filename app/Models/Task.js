@@ -3,10 +3,10 @@ import { ProxyState } from "../AppState.js"
 
 
 export default class Task{
-    constructor({listTitle = "nothing" , id, task, quantity = "", allTasks = 0, uncompletedTasks = 0}){
+    constructor({listTitle = "nothing" , id = generateId(), newId = generateId(), task, quantity = "", allTasks = 0, uncompletedTasks = 0}){
         this.listTitle = listTitle,
         this.id = id,
-        this.newId = generateId()
+        this.newId = newId
         this.task = task,
         this.quantity = quantity,
         this.allTasks = allTasks,
@@ -36,7 +36,7 @@ export default class Task{
 
     get CompletedTasks(){
         return /*html*/ `
-            ${this.uncompletedTasks}
+            ${this.allTasks}
         `
     }
 }

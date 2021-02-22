@@ -1,4 +1,5 @@
 import { ProxyState } from "../AppState.js";
+import CreateList from "../Models/CreateList.js";
 import Task from "../Models/Task.js";
 import { saveState } from "../Utils/LocaleStorage.js";
 
@@ -20,8 +21,11 @@ class TaskService{
         let temp = ProxyState.tasks
         let task = temp.find(task=> task.newId === newId)
         task.quantity = "Complete!"
+        task.allTasks -= 1
+        
         ProxyState.tasks = temp
     }
+
 
     deleteTask(newId){
         let temp = ProxyState.tasks
