@@ -14,6 +14,10 @@
   cursor: pointer;
 }
 
+.mt-6{
+  margin-top: .85rem;
+}
+
 :root {
   --blue: blue;
   --indigo: indigo;
