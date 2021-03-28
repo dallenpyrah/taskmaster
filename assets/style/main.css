@@ -17,6 +17,9 @@
 .mt-6{
   margin-top: .85rem;
 }
+.card{
+  border-radius: 5rem!important;
+}
 
 :root {
   --blue: blue;
